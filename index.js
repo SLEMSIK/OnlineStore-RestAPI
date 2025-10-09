@@ -5,11 +5,11 @@ import dotenv from "dotenv"
 import userRoute from "./routes/userRoute.js"
 import productRoute from "./routes/productRoute.js"
 import orderRoute from "./routes/orderRoute.js"
-
+import cors from "cors"
 
 const app = express ();
 app.use(bodyParser.json());
-
+app.use(cors());
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
