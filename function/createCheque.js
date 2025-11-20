@@ -7,7 +7,7 @@ dotenv.config();
 const service = process.env.MAIL_SERVICE
 const user = process.env.MAIL_USER
 const password = process.env.MAIL_PASSWORD
-
+const URL = process.env.URL
 
 let transporter = nodemailer.createTransport({
     host: service,
@@ -24,7 +24,7 @@ export default function sendEmail(data) {
   async function fetchProductPrice(id) {
     try {
         
-      const response = await axios.get(`http://localhost:5001/api/product/getproduct/${id}`); 
+      const response = await axios.get(`${URL}/api/product/getproduct/${id}`); 
       return response.data.price;
     } catch (err) {
       console.error(`Ошибка при получении цены товара: ${err.message}`);
@@ -157,7 +157,7 @@ export default function sendEmail(data) {
   }
   generateHTML().then(html => {
     let mailOptions = {
-      from: '"Online-Store" <tutorial@testmailtw.ru>',
+      from: '"Online-Store" <shop@twconlinestore.ru>',
       to: recipient,
       subject: 'Спасибо за заказ',
       html: html
