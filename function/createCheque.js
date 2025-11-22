@@ -157,7 +157,7 @@ export default function sendEmail(data) {
   }
   generateHTML().then(html => {
     let mailOptions = {
-      from: '"Online-Store" <shop@twconlinestore.ru>',
+      from: `"Online-Store" <${user}>`,
       to: recipient,
       subject: 'Спасибо за заказ',
       html: html
@@ -176,3 +176,4 @@ export default function sendEmail(data) {
 
     
 }
+
